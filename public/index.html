@@ -2,27 +2,35 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Signalling Server</title>
+    <title>WebRTC DataChannel Demo</title>
   </head>
   <body>
+    <h2>WebRTC P2P DataChannel</h2>
+
     <div id="onBoarding">
-      <label for="userName">Enter Name</label>
-      <input type="text" id="userName" autofocus />
-      <br /><br />
-      <label for="userEmail">Save Email</label>
-      <input type="email" id="userEmail" />
-      <br /><br />
-      <button onclick="saveEmail()">Save Email</button>
+      <input id="userName" placeholder="Name" />
+      <input id="userEmail" placeholder="Email" />
+      <button onclick="saveEmail()">Save</button>
     </div>
 
     <div id="message"></div>
-    <br />
 
     <div id="connectFriend" style="display: none">
-      <label for="friendEmail">Enter friend's email to connect</label>
-      <input type="email" id="friendEmail" />
+      <input id="friendEmail" placeholder="Friend Email" />
       <button onclick="connectFriend()">Connect</button>
+    </div>
+
+    <hr />
+
+    <div id="chat" style="display: none">
+      <h3>Status: <span id="status">DISCONNECTED</span></h3>
+
+      <input id="textMsg" placeholder="Message" />
+      <button onclick="sendText()">Send Text</button>
+
+      <br /><br />
+      <input type="file" id="fileInput" />
+      <button onclick="sendFile()">Send File</button>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>
